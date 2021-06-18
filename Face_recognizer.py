@@ -14,7 +14,7 @@ font = cv2.FONT_HERSHEY_SIMPLEX
 
 id = 0
 # Names related to ids: The names associated to the ids: 1 for Nazarii, 2 for Jack, etc...
-names = ['None', 'Nazarii', 'Olichka'] # add a name into this list
+names = ['None', 'Andrew', 'Helen'] # add a name into this list
 #Video Capture
 cam = cv2.VideoCapture(1)
 cam.set(3, 640)
@@ -38,11 +38,11 @@ while True:
         id, confidence = recognizer.predict(gray[y:y + h, x:x + w])
         if (confidence < 100):
             id = names[id]
-            confidence = " {0}%".format(round(120 - confidence))
+            confidence = " {0}%".format(round(100 - confidence))
         else:
             # Unknown Face
             id = "Who are you ?"
-            confidence = " {0}%".format(round(120 - confidence))
+            confidence = " {0}%".format(round(100 - confidence))
 
         cv2.putText(img, str(id), (x+5, y-5), font, 1, (255, 255, 255), 2)
         cv2.putText(img, str(confidence), (x+5, y+h-5), font, 1, (255, 255, 0), 1)
